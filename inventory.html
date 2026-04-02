@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory — AutoElite</title>
+  <meta name="description" content="Browse AutoElite's full inventory of premium pre-owned vehicles. Filter by make, price, body type and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo" aria-label="AutoElite Home">
+      <div class="nav-logo-icon" aria-hidden="true">🚗</div>
+      Auto<span>Elite</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="inventory.html" class="active">Inventory</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.46a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"></path></svg>
+        (555) 123-4567
+      </div>
+      <a href="contact.html" class="btn btn-primary btn-sm">Get a Quote</a>
+    </div>
+    <button class="hamburger" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="inventory.html">Inventory</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-header" role="banner">
+  <div class="container">
+    <div class="page-header-content">
+      <div>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          <span aria-current="page">Inventory</span>
+        </nav>
+        <h1 class="page-title">Browse Our <span class="text-primary">Inventory</span></h1>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.95rem;">
+        <strong style="color: var(--text-primary);" id="results-count">12</strong> vehicles available
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- INVENTORY LAYOUT -->
+<main>
+  <div class="container">
+    <div class="inventory-layout">
+
+      <!-- FILTER SIDEBAR -->
+      <aside class="filter-sidebar" aria-label="Filter options">
+        <div class="filter-card">
+          <div class="filter-header">
+            <h3>Filters</h3>
+            <button class="filter-reset" aria-label="Reset all filters">Reset All</button>
+          </div>
+
+          <form class="filter-form" aria-label="Car filter form">
+            <div class="filter-group">
+              <label for="filter-make">Make</label>
+              <select id="filter-make" name="make" class="filter-select" aria-label="Filter by make">
+                <option value="all">All Makes</option>
+                <option value="BMW">BMW</option>
+                <option value="Mercedes">Mercedes-Benz</option>
+                <option value="Audi">Audi</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Ford">Ford</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Honda">Honda</option>
+                <option value="Porsche">Porsche</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-body-type">Body Type</label>
+              <select id="filter-body-type" name="bodyType" class="filter-select" aria-label="Filter by body type">
+                <option value="all">All Types</option>
+                <option value="sedan">Sedan</option>
+                <option value="suv">SUV</option>
+                <option value="coupe">Coupe</option>
+                <option value="truck">Truck</option>
+                <option value="convertible">Convertible</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label>Price Range</label>
+              <div class="filter-range">
+                <div class="range-values">
+                  <span>$0</span>
+                  <span class="range-max" id="price-max-display">$150,000</span>
+                </div>
+                <input type="range" name="maxPrice" min="5000" max="150000" step="5000" value="150000"
+                  id="price-range" data-prefix="$" aria-label="Maximum price slider"
+                  oninput="document.getElementById('price-max-display').textContent='$'+parseInt(this.value).toLocaleString()" />
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label>Mileage (Max)</label>
+              <div class="filter-range">
+                <div class="range-values">
+                  <span>0 mi</span>
+                  <span class="range-max" id="mileage-max-display">100,000 mi</span>
+                </div>
+                <input type="range" name="maxMileage" min="0" max="100000" step="5000" value="100000"
+                  id="mileage-range" data-suffix=" mi" aria-label="Maximum mileage slider"
+                  oninput="document.getElementById('mileage-max-display').textContent=parseInt(this.value).toLocaleString()+' mi'" />
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label>Transmission</label>
+              <div class="filter-checkbox-group" role="group" aria-label="Transmission type">
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="transmission" value="automatic" checked />
+                  Automatic
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="transmission" value="manual" />
+                  Manual
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label>Fuel Type</label>
+              <div class="filter-checkbox-group" role="group" aria-label="Fuel type">
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="fuel" value="gasoline" checked />
+                  Gasoline
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="fuel" value="hybrid" />
+                  Hybrid
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="fuel" value="electric" />
+                  Electric
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label>Features</label>
+              <div class="filter-checkbox-group" role="group" aria-label="Car features">
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="feature" value="leather" />
+                  Leather Seats
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="feature" value="sunroof" />
+                  Sunroof
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="feature" value="nav" />
+                  Navigation
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="feature" value="backup-cam" />
+                  Backup Camera
+                </label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </aside>
+
+      <!-- INVENTORY MAIN -->
+      <section class="inventory-main" aria-label="Car listings">
+        <div class="inventory-toolbar">
+          <p class="inventory-count">Showing <strong id="results-count-2">12</strong> results</p>
+          <div class="toolbar-actions">
+            <select class="sort-select" aria-label="Sort cars by">
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Newest First</option>
+              <option>Lowest Mileage</option>
+            </select>
+            <div class="view-toggle" role="group" aria-label="View toggle">
+              <button class="view-btn active" aria-label="Grid view" title="Grid view">⊞</button>
+              <button class="view-btn" aria-label="List view" title="List view">☰</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cars-grid" role="list" aria-label="Available cars">
+
+          <!-- Car 1 -->
+          <article class="car-card animate-in" data-id="1" data-make="BMW" data-price="74900" data-type="sedan" role="listitem" aria-label="2023 BMW M3 Competition">
+            <div class="car-card-image">
+              <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&q=80" alt="2023 BMW M3 Competition" loading="lazy" />
+              <div class="car-card-badges"><span class="badge badge-featured">Featured</span></div>
+              <div class="car-card-actions">
+                <button class="car-action-btn" data-action="wishlist" aria-label="Add to wishlist">♡</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-card-header">
+                <div><div class="car-make">BMW</div><div class="car-name">M3 Competition</div></div>
+                <span class="car-year">2023</span>
+              </div>
+              <div class="car-specs">
+                <div class="car-spec">🕐 8,200 mi</div>
+                <div class="car-spec">⛽ Gasoline</div>
+                <div class="car-spec">🔄 Automatic</div>
+                <div class="car-spec">💪 503 HP</div>
+              </div>
+              <div class="car-card-footer">
+                <div><div class="car-price">$74,900</div><div class="car-price-original">$78,400</div></div>
+                <a href="car-detail.html?id=1" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 2 -->
+          <article class="car-card animate-in" data-id="2" data-make="Mercedes" data-price="52900" data-type="suv" role="listitem" aria-label="2022 Mercedes-Benz GLE 450">
+            <div class="car-card-image">
+              <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&q=80" alt="2022 Mercedes-Benz GLE 450" loading="lazy" />
+              <div class="car-card-badges"><span class="badge badge-certified">Certified</span><span class="badge badge-deal">Great Deal</span></div>
+              <div class="car-card-actions">
+                <button class="car-action-btn" data-action="wishlist" aria-label="Add to wishlist">♡</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-card-header">
+                <div><div class="car-make">Mercedes-Benz</div><div class="car-name">GLE 450 4MATIC</div></div>
+                <span class="car-year">2022</span>
+              </div>
+              <div class="car-specs">
+                <div class="car-spec">🕐 18,400 mi</div>
+                <div class="car-spec">⛽ Gasoline</div>
+                <div class="car-spec">🔄 Automatic</div>
+                <div class="car-spec">💪 362 HP</div>
+              </div>
+              <div class="car-card-footer">
+                <div><div class="car-price">$52,900</div><div class="car-price-original">$56,200</div></div>
+                <a href="car-detail.html?id=2" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 3 -->
+          <article class="car-card animate-in" data-id="3" data-make="Porsche" data-price="89500" data-type="suv" role="listitem" aria-label="2022 Porsche Cayenne Turbo">
+            <div class="car-card-image">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="2022 Porsche Cayenne Turbo" loading="lazy" />
+              <div class="car-card-badges"><span class="badge badge-new">New Arrival</span></div>
+              <div class="car-card-actions">
+                <button class="car-action-btn" data-action="wishlist" aria-label="Add to wishlist">♡</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-card-header">
+                <div><div class="car-make">Porsche</div><div class="car-name">Cayenne Turbo</div></div>
+                <span class="car-year">2022</span>
+              </div>
+              <div class="car-specs">
+                <div class="car-spec">🕐 11,800 mi</div>
+                <div class="car-spec">⛽ Gasoline</div>
+                <div class="car-spec">🔄 Automatic</div>
+                <div class="car-spec">💪 541 HP</div>
+              </div>
+              <div class="car-card-footer">
+                <div><div class="car-price">$89,500</div><div class="car-price-original">$94,000</div></div>
+                <a href="car-detail.html?id=3" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 4 -->
+          <article class="car-card animate-in" data-id="4" data-make="Audi" data-price="45800" data-type="sedan" role="listitem" aria-label="2021 Audi A6 Prestige">
+            <div class="car-card-image">
+              <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&q=80" alt="2021 Audi A6 Prestige" loading="lazy" />
+              <div class="car-card-badges"><span class="badge badge-certified">Certified</span></div>
+              <div class="car-card-actions">
+                <button class="car-action-btn" data-action="wishlist" aria-label="Add to wishlist">♡</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-card-header">
+                <div><div class="car-make">Audi</div><div class="car-name">A6 Prestige</div></div>
+                <span class="car-year">2021</span>
+              </div>
+              <div class="car-specs">
+                <div class="car-spec">🕐 22,500 mi</div>
+                <div class="car-spec">⛽ Gasoline</div>
+                <div class="car-spec">🔄 Automatic</div>
+                <div class="car-spec">💪 335 HP</div>
+              </div>
+              <div class="car-card-footer">
+                <div><div class="car-price">$45,800</div><div class="car-price-original">$48,500</div></div>
+                <a href="car-detail.html?id=4" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 5 -->
+          <article class="car-card animate-in" data-id="5" data-make="Toyota" data-price="38200" data-type="suv" role="listitem" aria-label="2023 Toyota Land Cruiser">
+            <div class="car-card-image">
+              <img src="https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=600&q=80" alt="2023 Toyota Land Cruiser" loading="lazy" />
+              <div class="car-card-badges"><span class="badge badge-deal">Best Value</span></div>
+              <div class="car-card-actions">
+                <button class="car-action-btn" data-action="wishlist" aria-label="Add to wishlist">♡</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-card-header">
+                <div><div class="car-make">Toyota</div><div class="car-name">Land Cruiser</div></div>
+                <span class="car-year">2023</span>
+              </div>
+              <div class="car-specs">
+                <div class="car-spec">🕐 14,200 mi</div>
+                <div class="car-spec">⛽ Gasoline</div>
+                <div class="car-spec">🔄 Automatic</div>
+                <div class="car-spec">💪 409 HP</div>
+              </div>
+              <div class="car-card-footer">
+                <div><div class="car-price">$38,200</div><div class="car-price-original">$41,000</div></div>
+                <a href="car-detail.html?id=5" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 6 -->
+          <article class="car-card animate-in" data-id="6" data-make="Ford" data-price="58900" data-type="truck" role="listitem" aria-label="2023 Ford F-150 Raptor">
+            <div class="car-card-image">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="2023 Ford F-150 Raptor" loading="lazy" />
+              <div class="car-card-badges"><span class="badge badge-new">New Arrival</span></div>
+              <div class="car-card-actions">
+                <button class="car-action-btn" data-action="wishlist" aria-label="Add to wishlist">♡</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-card-header">
+                <div><div class="car-make">Ford</div><div class="car-name">F-150 Raptor</div></div>
+                <span class="car-year">2023</span>
+              </div>
+              <div class="car-specs">
+                <div class="car-spec">🕐 9,100 mi</div>
+                <div class="car-spec">⛽ Gasoline</div>
+                <div class="car-spec">🔄 Automatic</div>
+                <div class="car-spec">💪 450 HP</div>
+              </div>
+              <div class="car-card-footer">
+                <div><div class="car-price">$58,900</div><div class="car-price-original">$62,500</div></div>
+                <a href="car-detail.html?id=6" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 7 -->
+          <article class="car-card animate-in" data-id="7" data-make="Chevrolet" data-price="29800" data-type="sedan" role="listitem" aria-label="2022 Chevrolet Corvette Stingray">
+            <div class="car-card-image">
+              <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80" alt="2022 Chevrolet Corvette Stingray" loading="lazy" />
+              <div class="car-card-badges"><span class="badge badge-deal">Great Deal</span></div>
+              <div class="car-card-actions">
+                <button class="car-action-btn" data-action="wishlist" aria-label="Add to wishlist">♡</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-card-header">
+                <div><div class="car-make">Chevrolet</div><div class="car-name">Corvette Stingray</div></div>
+                <span class="car-year">2022</span>
+              </div>
+              <div class="car-specs">
+                <div class="car-spec">🕐 16,400 mi</div>
+                <div class="car-spec">⛽ Gasoline</div>
+                <div class="car-spec">🔄 Automatic</div>
+                <div class="car-spec">💪 495 HP</div>
+              </div>
+              <div class="car-card-footer">
+                <div><div class="car-price">$62,500</div><div class="car-price-original">$67,000</div></div>
+                <a href="car-detail.html?id=7" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 8 -->
+          <article class="car-card animate-in" data-id="8" data-make="Honda" data-price="21500" data-type="suv" role="listitem" aria-label="2023 Honda CR-V Hybrid">
+            <div class="car-card-image">
+              <img src="https://images.unsplash.com/photo-1590362891991-f776e747a588?w=600&q=80" alt="2023 Honda CR-V Hybrid" loading="lazy" />
+              <div class="car-card-badges"><span class="badge badge-certified">Certified</span></div>
+              <div class="car-card-actions">
+                <button class="car-action-btn" data-action="wishlist" aria-label="Add to wishlist">♡</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-card-header">
+                <div><div class="car-make">Honda</div><div class="car-name">CR-V Hybrid</div></div>
+                <span class="car-year">2023</span>
+              </div>
+              <div class="car-specs">
+                <div class="car-spec">🕐 12,000 mi</div>
+                <div class="car-spec">⛽ Hybrid</div>
+                <div class="car-spec">🔄 Automatic</div>
+                <div class="car-spec">💪 204 HP</div>
+              </div>
+              <div class="car-card-footer">
+                <div><div class="car-price">$31,500</div><div class="car-price-original">$34,200</div></div>
+                <a href="car-detail.html?id=8" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 9 -->
+          <article class="car-card animate-in" data-id="9" data-make="BMW" data-price="32400" data-type="coupe" role="listitem" aria-label="2021 BMW 4 Series Coupe">
+            <div class="car-card-image">
+              <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80" alt="2021 BMW 4 Series Coupe" loading="lazy" />
+              <div class="car-card-badges"><span class="badge badge-certified">Certified</span></div>
+              <div class="car-card-actions">
+                <button class="car-action-btn" data-action="wishlist" aria-label="Add to wishlist">♡</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-card-header">
+                <div><div class="car-make">BMW</div><div class="car-name">430i Coupe</div></div>
+                <span class="car-year">2021</span>
+              </div>
+              <div class="car-specs">
+                <div class="car-spec">🕐 25,800 mi</div>
+                <div class="car-spec">⛽ Gasoline</div>
+                <div class="car-spec">🔄 Automatic</div>
+                <div class="car-spec">💪 255 HP</div>
+              </div>
+              <div class="car-card-footer">
+                <div><div class="car-price">$38,400</div><div class="car-price-original">$41,500</div></div>
+                <a href="car-detail.html?id=9" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 10 -->
+          <article class="car-card animate-in" data-id="10" data-make="Mercedes" data-price="95000" data-type="coupe" role="listitem" aria-label="2023 Mercedes-Benz AMG GT">
+            <div class="car-card-image">
+              <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=600&q=80" alt="2023 Mercedes-Benz AMG GT" loading="lazy" />
+              <div class="car-card-badges"><span class="badge badge-featured">Featured</span><span class="badge badge-new">New</span></div>
+              <div class="car-card-actions">
+                <button class="car-action-btn" data-action="wishlist" aria-label="Add to wishlist">♡</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-card-header">
+                <div><div class="car-make">Mercedes-Benz</div><div class="car-name">AMG GT 63 S</div></div>
+                <span class="car-year">2023</span>
+              </div>
+              <div class="car-specs">
+                <div class="car-spec">🕐 4,200 mi</div>
+                <div class="car-spec">⛽ Gasoline</div>
+                <div class="car-spec">🔄 Automatic</div>
+                <div class="car-spec">💪 630 HP</div>
+              </div>
+              <div class="car-card-footer">
+                <div><div class="car-price">$149,900</div><div class="car-price-original">$158,500</div></div>
+                <a href="car-detail.html?id=10" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 11 -->
+          <article class="car-card animate-in" data-id="11" data-make="Audi" data-price="67000" data-type="suv" role="listitem" aria-label="2022 Audi Q8 S-line">
+            <div class="car-card-image">
+              <img src="https://images.unsplash.com/photo-1526726538690-5cbf956ae2fd?w=600&q=80" alt="2022 Audi Q8 S-line" loading="lazy" />
+              <div class="car-card-badges"><span class="badge badge-deal">Hot Deal</span></div>
+              <div class="car-card-actions">
+                <button class="car-action-btn" data-action="wishlist" aria-label="Add to wishlist">♡</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-card-header">
+                <div><div class="car-make">Audi</div><div class="car-name">Q8 S-line</div></div>
+                <span class="car-year">2022</span>
+              </div>
+              <div class="car-specs">
+                <div class="car-spec">🕐 19,600 mi</div>
+                <div class="car-spec">⛽ Gasoline</div>
+                <div class="car-spec">🔄 Automatic</div>
+                <div class="car-spec">💪 335 HP</div>
+              </div>
+              <div class="car-card-footer">
+                <div><div class="car-price">$67,000</div><div class="car-price-original">$72,500</div></div>
+                <a href="car-detail.html?id=11" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 12 -->
+          <article class="car-card animate-in" data-id="12" data-make="Toyota" data-price="24800" data-type="sedan" role="listitem" aria-label="2023 Toyota Camry XSE">
+            <div class="car-card-image">
+              <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=600&q=80" alt="2023 Toyota Camry XSE" loading="lazy" />
+              <div class="car-card-badges"><span class="badge badge-certified">Certified</span></div>
+              <div class="car-card-actions">
+                <button class="car-action-btn" data-action="wishlist" aria-label="Add to wishlist">♡</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-card-header">
+                <div><div class="car-make">Toyota</div><div class="car-name">Camry XSE V6</div></div>
+                <span class="car-year">2023</span>
+              </div>
+              <div class="car-specs">
+                <div class="car-spec">🕐 8,400 mi</div>
+                <div class="car-spec">⛽ Gasoline</div>
+                <div class="car-spec">🔄 Automatic</div>
+                <div class="car-spec">💪 301 HP</div>
+              </div>
+              <div class="car-card-footer">
+                <div><div class="car-price">$32,800</div><div class="car-price-original">$35,000</div></div>
+                <a href="car-detail.html?id=12" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- PAGINATION -->
+        <nav class="pagination" aria-label="Inventory pagination">
+          <button class="page-btn" aria-label="Previous page">‹</button>
+          <button class="page-btn active" aria-label="Page 1" aria-current="page">1</button>
+          <button class="page-btn" aria-label="Page 2">2</button>
+          <button class="page-btn" aria-label="Page 3">3</button>
+          <span style="padding: 0 4px; color: var(--text-muted);">...</span>
+          <button class="page-btn" aria-label="Page 8">8</button>
+          <button class="page-btn" aria-label="Next page">›</button>
+        </nav>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-icon" aria-hidden="true">🚗</div>
+          Auto<span>Elite</span>
+        </a>
+        <p>Premium pre-owned vehicles for discerning drivers. Quality, transparency, and exceptional service since 2009.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="inventory.html">Browse Inventory</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Browse By</h4>
+        <ul class="footer-links">
+          <li><a href="inventory.html">SUVs</a></li>
+          <li><a href="inventory.html">Sedans</a></li>
+          <li><a href="inventory.html">Coupes</a></li>
+          <li><a href="inventory.html">Trucks</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <div class="footer-contact-item">📍 123 Auto Drive, Motor City, CA 90210</div>
+        <div class="footer-contact-item">📞 (555) 123-4567</div>
+        <div class="footer-contact-item">✉️ info@autoelite.com</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 AutoElite. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

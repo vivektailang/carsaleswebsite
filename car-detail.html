@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2023 BMW M3 Competition — AutoElite</title>
+  <meta name="description" content="2023 BMW M3 Competition, 8,200 miles, 503HP, $74,900. Certified pre-owned with 12-month warranty. Available at AutoElite." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo" aria-label="AutoElite Home">
+      <div class="nav-logo-icon" aria-hidden="true">🚗</div>
+      Auto<span>Elite</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="inventory.html" class="active">Inventory</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.46a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"></path></svg>
+        (555) 123-4567
+      </div>
+      <a href="contact.html" class="btn btn-primary btn-sm">Get a Quote</a>
+    </div>
+    <button class="hamburger" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="inventory.html">Inventory</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-header" role="banner">
+  <div class="container">
+    <div class="page-header-content">
+      <div>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          <a href="inventory.html">Inventory</a>
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          <span aria-current="page">BMW M3 Competition</span>
+        </nav>
+        <h1 class="page-title">2023 BMW M3 <span class="text-primary">Competition</span></h1>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button class="btn btn-secondary btn-sm" onclick="showNotification('Added to your wishlist!', '♥')" aria-label="Add to wishlist">♡ Wishlist</button>
+        <button class="btn btn-secondary btn-sm" onclick="navigator.share ? navigator.share({title:'2023 BMW M3', url:window.location.href}) : showNotification('Link copied!')" aria-label="Share this car">⬆ Share</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CAR DETAIL -->
+<main>
+  <div class="container">
+    <div class="detail-layout">
+
+      <!-- LEFT: GALLERY + TABS -->
+      <div class="detail-main">
+        <!-- Gallery -->
+        <div class="detail-gallery" aria-label="Car image gallery">
+          <div class="main-image" id="main-gallery-image">
+            <img
+              src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=900&q=85"
+              alt="2023 BMW M3 Competition front view"
+              id="main-car-img"
+              loading="eager"
+            />
+          </div>
+          <div class="thumbnail-grid" role="list" aria-label="Gallery thumbnails">
+            <div class="thumbnail active" role="listitem" aria-label="View front image" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=300&q=70" alt="BMW M3 front view" />
+            </div>
+            <div class="thumbnail" role="listitem" aria-label="View side image" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300&q=70" alt="BMW M3 side view" />
+            </div>
+            <div class="thumbnail" role="listitem" aria-label="View interior" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=300&q=70" alt="BMW M3 interior" />
+            </div>
+            <div class="thumbnail" role="listitem" aria-label="View engine" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300&q=70" alt="BMW M3 rear view" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div>
+          <div class="detail-tabs" role="tablist" aria-label="Car information tabs">
+            <button class="tab-btn active" data-tab="overview" role="tab" aria-selected="true" aria-controls="tab-overview">Overview</button>
+            <button class="tab-btn" data-tab="specs" role="tab" aria-selected="false" aria-controls="tab-specs">Specifications</button>
+            <button class="tab-btn" data-tab="features" role="tab" aria-selected="false" aria-controls="tab-features">Features</button>
+            <button class="tab-btn" data-tab="history" role="tab" aria-selected="false" aria-controls="tab-history">History</button>
+          </div>
+
+          <!-- Overview Tab -->
+          <div class="tab-content active" data-tab-content="overview" id="tab-overview" role="tabpanel">
+            <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px;">
+              Introducing the pinnacle of BMW M engineering — the 2023 BMW M3 Competition. This exceptional machine combines stunning performance with everyday usability, featuring the iconic M TwinPower Turbo inline six-cylinder engine producing an exhilarating 503 horsepower.
+            </p>
+            <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px;">
+              With just 8,200 miles on the clock, this near-new M3 has been meticulously maintained and comes with full service history. The Competition Package adds upgraded M xDrive all-wheel drive, M Sport exhaust, and exclusive competition-only M Drive Professional modes.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px;">
+              <div style="background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: var(--radius-md); padding: 16px; text-align: center;">
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--white);">503</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Horsepower</div>
+              </div>
+              <div style="background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: var(--radius-md); padding: 16px; text-align: center;">
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--white);">3.8s</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">0–60 mph</div>
+              </div>
+              <div style="background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: var(--radius-md); padding: 16px; text-align: center;">
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--white);">8,200</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Miles</div>
+              </div>
+              <div style="background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: var(--radius-md); padding: 16px; text-align: center;">
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--white);">180+</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Top Speed (mph)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Specs Tab -->
+          <div class="tab-content" data-tab-content="specs" id="tab-specs" role="tabpanel">
+            <div class="specs-grid" aria-label="Vehicle specifications">
+              <div class="spec-item">
+                <span class="spec-key">Make</span>
+                <span class="spec-value">BMW</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Model</span>
+                <span class="spec-value">M3 Competition</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Year</span>
+                <span class="spec-value">2023</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Mileage</span>
+                <span class="spec-value">8,200 miles</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Engine</span>
+                <span class="spec-value">3.0L Twin-Turbo I6</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Horsepower</span>
+                <span class="spec-value">503 HP</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Torque</span>
+                <span class="spec-value">479 lb-ft</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Transmission</span>
+                <span class="spec-value">8-Speed Automatic</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Drivetrain</span>
+                <span class="spec-value">AWD (M xDrive)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Fuel Type</span>
+                <span class="spec-value">Premium Gasoline</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">MPG (City)</span>
+                <span class="spec-value">16 mpg</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">MPG (Hwy)</span>
+                <span class="spec-value">23 mpg</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Body Style</span>
+                <span class="spec-value">Sedan</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Doors</span>
+                <span class="spec-value">4</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Exterior Color</span>
+                <span class="spec-value">Sapphire Black Metallic</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Interior Color</span>
+                <span class="spec-value">Black Merino Leather</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">VIN</span>
+                <span class="spec-value">WBS8M9C01PCL12345</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Stock #</span>
+                <span class="spec-value">AE-2023-001</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Features Tab -->
+          <div class="tab-content" data-tab-content="features" id="tab-features" role="tabpanel">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+              <div>
+                <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 14px;">Performance</h4>
+                <ul style="display: flex; flex-direction: column; gap: 10px;">
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ M Sport Exhaust System</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ M xDrive All-Wheel Drive</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ M Drive Professional</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Carbon Fiber Roof</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Adaptive M Suspension</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ 19/20" M Forged Wheels</li>
+                </ul>
+              </div>
+              <div>
+                <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 14px;">Technology</h4>
+                <ul style="display: flex; flex-direction: column; gap: 10px;">
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ BMW iDrive 8 Infotainment</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ 12.3" Digital Cluster</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Head-Up Display</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Wireless Apple CarPlay</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Harman Kardon Sound</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Parking Assistant Pro</li>
+                </ul>
+              </div>
+              <div>
+                <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 14px;">Comfort</h4>
+                <ul style="display: flex; flex-direction: column; gap: 10px;">
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ M Multifunction Seats</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Heated Front & Rear Seats</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Panoramic Sunroof</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Merino Leather Interior</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ 4-Zone Climate Control</li>
+                </ul>
+              </div>
+              <div>
+                <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 14px;">Safety</h4>
+                <ul style="display: flex; flex-direction: column; gap: 10px;">
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Active Driving Assistant Pro</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Lane Departure Warning</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Blind Spot Detection</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Rear Cross-Traffic Alert</li>
+                  <li style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--text-secondary);">✓ Emergency Call System</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- History Tab -->
+          <div class="tab-content" data-tab-content="history" id="tab-history" role="tabpanel">
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="background: rgba(46,160,67,0.1); border: 1px solid rgba(46,160,67,0.3); border-radius: var(--radius-md); padding: 16px 20px; display: flex; align-items: center; gap: 16px;">
+                <div style="font-size: 1.5rem;">✓</div>
+                <div>
+                  <div style="font-weight: 700; color: var(--success); margin-bottom: 2px;">Clean CARFAX Report</div>
+                  <div style="font-size: 0.85rem; color: var(--text-secondary);">No accidents, no damage reported. 1 previous owner.</div>
+                </div>
+              </div>
+
+              <div style="background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: var(--radius-md); padding: 20px;">
+                <h4 style="margin-bottom: 16px; font-size: 0.95rem;">Service History</h4>
+                <div style="display: flex; flex-direction: column; gap: 0;">
+                  <div style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--dark-border);">
+                    <div style="width: 80px; font-size: 0.82rem; color: var(--text-muted); flex-shrink: 0;">Mar 2024</div>
+                    <div>
+                      <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">Oil Change & Multi-point Inspection</div>
+                      <div style="font-size: 0.8rem; color: var(--text-muted);">BMW of Beverly Hills · 8,100 miles</div>
+                    </div>
+                  </div>
+                  <div style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--dark-border);">
+                    <div style="width: 80px; font-size: 0.82rem; color: var(--text-muted); flex-shrink: 0;">Sep 2023</div>
+                    <div>
+                      <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">Brake Fluid Service</div>
+                      <div style="font-size: 0.8rem; color: var(--text-muted);">BMW of Beverly Hills · 4,200 miles</div>
+                    </div>
+                  </div>
+                  <div style="display: flex; gap: 16px; padding: 14px 0;">
+                    <div style="width: 80px; font-size: 0.82rem; color: var(--text-muted); flex-shrink: 0;">Mar 2023</div>
+                    <div>
+                      <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">New Vehicle Delivery Inspection</div>
+                      <div style="font-size: 0.8rem; color: var(--text-muted);">BMW of Beverly Hills · 15 miles</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: PRICE + QUICK FACTS + CONTACT -->
+      <aside class="detail-sidebar" aria-label="Pricing and contact">
+
+        <div class="price-card">
+          <div class="price-label">Asking Price</div>
+          <div class="price-main">$74,900</div>
+          <div class="price-original">MSRP: $81,450</div>
+          <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+            <span class="badge badge-featured">Featured</span>
+            <span class="badge badge-certified">Certified</span>
+          </div>
+          <div class="price-actions">
+            <a href="contact.html" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.46a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"></path></svg>
+              Call (555) 123-4567
+            </a>
+            <button class="btn btn-secondary" onclick="document.querySelector('.inquiry-form').scrollIntoView({behavior:'smooth'})">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              Send Inquiry
+            </button>
+            <button class="btn btn-outline" onclick="showNotification('Test drive scheduled! We\'ll call you shortly.')">
+              🚗 Schedule Test Drive
+            </button>
+          </div>
+        </div>
+
+        <div class="quick-facts" aria-label="Quick vehicle facts">
+          <h4>Quick Facts</h4>
+          <div class="quick-fact-item">
+            <span class="quick-fact-key">Year</span>
+            <span class="quick-fact-value">2023</span>
+          </div>
+          <div class="quick-fact-item">
+            <span class="quick-fact-key">Mileage</span>
+            <span class="quick-fact-value">8,200 mi</span>
+          </div>
+          <div class="quick-fact-item">
+            <span class="quick-fact-key">Engine</span>
+            <span class="quick-fact-value">3.0L TT I6</span>
+          </div>
+          <div class="quick-fact-item">
+            <span class="quick-fact-key">Transmission</span>
+            <span class="quick-fact-value">8-Speed Auto</span>
+          </div>
+          <div class="quick-fact-item">
+            <span class="quick-fact-key">Drivetrain</span>
+            <span class="quick-fact-value">AWD</span>
+          </div>
+          <div class="quick-fact-item">
+            <span class="quick-fact-key">Ext. Color</span>
+            <span class="quick-fact-value">Sapphire Black</span>
+          </div>
+          <div class="quick-fact-item">
+            <span class="quick-fact-key">Int. Color</span>
+            <span class="quick-fact-value">Black Leather</span>
+          </div>
+          <div class="quick-fact-item">
+            <span class="quick-fact-key">Stock #</span>
+            <span class="quick-fact-value">AE-2023-001</span>
+          </div>
+        </div>
+
+        <!-- INLINE INQUIRY FORM -->
+        <div class="filter-card inquiry-form" aria-label="Inquiry form">
+          <h4 style="margin-bottom: 20px; font-size: 1rem;">Send Inquiry</h4>
+          <form class="contact-form" aria-label="Vehicle inquiry form">
+            <div class="form-group">
+              <label for="inq-name">Your Name</label>
+              <input type="text" id="inq-name" class="form-control" placeholder="John Smith" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="inq-email">Email Address</label>
+              <input type="email" id="inq-email" class="form-control" placeholder="john@example.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="inq-phone">Phone (optional)</label>
+              <input type="tel" id="inq-phone" class="form-control" placeholder="(555) 000-0000" autocomplete="tel" />
+            </div>
+            <div class="form-group">
+              <label for="inq-message">Message</label>
+              <textarea id="inq-message" class="form-control" rows="3" placeholder="I'm interested in this vehicle...">I'm interested in the 2023 BMW M3 Competition (Stock #AE-2023-001). Please contact me with more information.</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-full" style="justify-content: center;">Send Message</button>
+          </form>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- SIMILAR VEHICLES -->
+<section class="section" style="background: var(--dark-card); border-top: 1px solid var(--dark-border);" aria-labelledby="similar-heading">
+  <div class="container">
+    <div class="section-header" style="margin-bottom: 32px;">
+      <h2 id="similar-heading" class="section-title">Similar <span class="text-primary">Vehicles</span></h2>
+    </div>
+    <div class="cars-grid">
+      <article class="car-card" data-id="9" role="listitem" aria-label="2021 BMW 430i Coupe">
+        <div class="car-card-image">
+          <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80" alt="2021 BMW 430i Coupe" loading="lazy" />
+          <div class="car-card-badges"><span class="badge badge-certified">Certified</span></div>
+        </div>
+        <div class="car-card-body">
+          <div class="car-card-header">
+            <div><div class="car-make">BMW</div><div class="car-name">430i Coupe</div></div>
+            <span class="car-year">2021</span>
+          </div>
+          <div class="car-specs">
+            <div class="car-spec">🕐 25,800 mi</div>
+            <div class="car-spec">⛽ Gasoline</div>
+          </div>
+          <div class="car-card-footer">
+            <div><div class="car-price">$38,400</div></div>
+            <a href="car-detail.html?id=9" class="btn btn-primary btn-sm">View Details</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card" data-id="10" role="listitem" aria-label="2023 Mercedes-Benz AMG GT 63 S">
+        <div class="car-card-image">
+          <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=600&q=80" alt="2023 Mercedes-Benz AMG GT 63 S" loading="lazy" />
+          <div class="car-card-badges"><span class="badge badge-featured">Featured</span></div>
+        </div>
+        <div class="car-card-body">
+          <div class="car-card-header">
+            <div><div class="car-make">Mercedes-Benz</div><div class="car-name">AMG GT 63 S</div></div>
+            <span class="car-year">2023</span>
+          </div>
+          <div class="car-specs">
+            <div class="car-spec">🕐 4,200 mi</div>
+            <div class="car-spec">⛽ Gasoline</div>
+          </div>
+          <div class="car-card-footer">
+            <div><div class="car-price">$149,900</div></div>
+            <a href="car-detail.html?id=10" class="btn btn-primary btn-sm">View Details</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card" data-id="3" role="listitem" aria-label="2022 Porsche Cayenne Turbo">
+        <div class="car-card-image">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="2022 Porsche Cayenne Turbo" loading="lazy" />
+          <div class="car-card-badges"><span class="badge badge-new">New Arrival</span></div>
+        </div>
+        <div class="car-card-body">
+          <div class="car-card-header">
+            <div><div class="car-make">Porsche</div><div class="car-name">Cayenne Turbo</div></div>
+            <span class="car-year">2022</span>
+          </div>
+          <div class="car-specs">
+            <div class="car-spec">🕐 11,800 mi</div>
+            <div class="car-spec">⛽ Gasoline</div>
+          </div>
+          <div class="car-card-footer">
+            <div><div class="car-price">$89,500</div></div>
+            <a href="car-detail.html?id=3" class="btn btn-primary btn-sm">View Details</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-icon" aria-hidden="true">🚗</div>
+          Auto<span>Elite</span>
+        </a>
+        <p>Premium pre-owned vehicles for discerning drivers. Quality, transparency, and exceptional service since 2009.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="inventory.html">Browse Inventory</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Browse By</h4>
+        <ul class="footer-links">
+          <li><a href="inventory.html">SUVs</a></li>
+          <li><a href="inventory.html">Sedans</a></li>
+          <li><a href="inventory.html">Coupes</a></li>
+          <li><a href="inventory.html">Trucks</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <div class="footer-contact-item">📍 123 Auto Drive, Motor City, CA 90210</div>
+        <div class="footer-contact-item">📞 (555) 123-4567</div>
+        <div class="footer-contact-item">✉️ info@autoelite.com</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 AutoElite. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
