@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DriveNest | Inventory</title>
+  <meta name="description" content="Search and sort our inventory of quality used cars.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">DriveNest</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">Menu</button>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html">Home</a>
+        <a class="active" href="inventory.html">Inventory</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="sub-hero">
+      <div class="container">
+        <p class="eyebrow">Inventory</p>
+        <h1>Find the right used car faster.</h1>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="inventory-controls reveal">
+        <label>
+          Search cars
+          <input type="text" id="searchInput" placeholder="Search by make, model, year, body type...">
+        </label>
+
+        <label>
+          Filter by make
+          <select id="makeFilter">
+            <option value="all">All makes</option>
+          </select>
+        </label>
+
+        <label>
+          Sort by
+          <select id="sortSelect">
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="model-asc">Model: A to Z</option>
+            <option value="model-desc">Model: Z to A</option>
+          </select>
+        </label>
+      </div>
+
+      <p id="resultCount" class="result-count"></p>
+      <div id="inventoryGrid" class="card-grid three"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 DriveNest. All rights reserved.</p>
+      <p>Need finance advice? Call +1 (555) 0199</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/inventory.js" defer></script>
+</body>
+</html>
