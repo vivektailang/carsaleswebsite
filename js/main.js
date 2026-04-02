@@ -247,7 +247,8 @@ if (searchForm) {
     const minPrice = searchForm.querySelector('[name="minPrice"]')?.value || '';
     const maxPrice = searchForm.querySelector('[name="maxPrice"]')?.value || '';
     const bodyType = searchForm.querySelector('[name="bodyType"]')?.value || '';
-    window.location.href = `inventory.html?make=${make}&minPrice=${minPrice}&maxPrice=${maxPrice}&bodyType=${bodyType}`;
+    const params = new URLSearchParams({ make, minPrice, maxPrice, bodyType });
+    window.location.href = `inventory.html?${params.toString()}`;
   });
 }
 
